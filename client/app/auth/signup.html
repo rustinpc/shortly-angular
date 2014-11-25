@@ -1,9 +1,11 @@
 <div id='signup'>
   <h1>signup</h1>
   <form name="signupForm" ng-submit='signup()'>
-    <input type='text' ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
-    <button>signup</button>
+    <input name="userForm" type='text' ng-model='user.username' required>
+    <input name="passForm" type="password" ng-model='user.password' ng-maxlength='3' required>
+    <button ng-disabled="signupForm.$invalid" >signup</button>
+    <span ng-show="signupForm.userForm.$error.required">Username is required.</span>
+    <span ng-show="signupForm.passForm.$error.maxlength">Password must be at most 3 characters.</span>
   </form>
   <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
 </div>

@@ -2,7 +2,9 @@
   <!-- Your html here -->
   <a href="/#/shorten">Shorten</a>
   <h2>Links</h2>
+  <input ng-model="search.url"></input>
   <ul>
-    <li ng-repeat="link in data.links"><a href={{link.shortLy}}>{{ 'shortly.com/' + link.code }}</a> ({{link.visits}} - {{ link.url }})</li>
+    <li ng-repeat="link in data.links | filter:search | orderBy:'-visits'"><a href='{{ "api/links/" + link.code }}'>{{ 'shortly.com/' + link.code }}</a> ({{link.visits}} - {{ link.url }})</li>
   </ul>
 </div>
+

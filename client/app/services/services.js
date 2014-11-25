@@ -6,9 +6,6 @@ angular.module('shortly.services', [])
     $http.get('/api/links')
       .success(function(links){
         data.links = links;
-        data.links.forEach(function(item, index, array){
-          array[index].shortLy = '/api/links/' + item.code;
-        });
       })
       .error(function(error) { console.error(error); });
   };
