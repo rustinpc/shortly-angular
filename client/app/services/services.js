@@ -1,7 +1,6 @@
 angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
-  // Your code here
   var data = {};
   var getLinks = function() {
     console.log('get links');
@@ -11,9 +10,6 @@ angular.module('shortly.services', [])
       })
       .error(function(error) { console.error(error); });
   };
-  // var init = function() {
-    getLinks();
-  // };
   return {
     data: data,
     getLinks: getLinks
