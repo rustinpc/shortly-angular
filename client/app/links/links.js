@@ -5,4 +5,5 @@ angular.module('shortly.links', [])
   angular.extend($scope, Links);
 
   $scope.getLinks();
+
 });

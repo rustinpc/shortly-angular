@@ -1,3 +1,8 @@
 <div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
+  <a href="/#/shorten">Shorten</a>
+  <h2>Links</h2>
+  <ul>
+    <li ng-repeat="link in data.links"><a href={{link.shortLy}}>{{ 'shortly.com/' + link.code }}</a> ({{link.visits}} - {{ link.url }})</li>
+  </ul>
 </div>
