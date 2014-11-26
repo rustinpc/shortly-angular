@@ -1,10 +1,16 @@
 <div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
-  <a href="/#/shorten">Shorten</a>
+  <div class="container">
+  <a ui-sref="shorten">Shorten</a>
   <h2>Links</h2>
-  <input ng-model="search.url"></input>
-  <ul>
-    <li ng-repeat="link in data.links | filter:search | orderBy:'-visits'"><a href='{{ "api/links/" + link.code }}'>{{ 'shortly.com/' + link.code }}</a> ({{link.visits}} - {{ link.url }})</li>
+  </div>
+  <div style="width:300px;">Search:
+  <input ng-model="search.url" class="form-control" ></input>
+  </div>
+  <div class="container-fluid">
+  <ul class="list-unstyled">
+    <li ng-repeat="link in data.links | filter:search | orderBy:'-visits'" class="row"><span class="col-md-4"><a href='{{ "api/links/" + link.code }}'>{{ 'shortly.com/' + link.code }}</a><br />({{ link.url }})</span><span class="col-md-2">{{link.visits}}</span><span class="col-md-4">{{ link.title }}</span></li>
   </ul>
+  </div>
 </div>
 
